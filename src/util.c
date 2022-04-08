@@ -273,12 +273,12 @@ int hostname_isequal(char* a, char* b) {
 
 time_t dnsmasq_time(void) {
 #ifdef HAVE_BROKEN_RTC
-    struct tms unused;
+    struct tms dummy;
     static long tps = 0;
 
     if (tps == 0) tps = sysconf(_SC_CLK_TCK);
 
-    return (time_t)(times(&unused) / tps);
+    return (time_t)(times(&dummy) / tps);
 #else
     return time(NULL);
 #endif
