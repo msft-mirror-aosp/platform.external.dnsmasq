@@ -351,7 +351,7 @@ struct listener* create_wildcard_listeners(void) {
 void create_bound_listener(struct listener** listeners, struct irec* iface) {
     int rc, opt = 1;
 #ifdef HAVE_IPV6
-    static int dad_count = 0;
+    int dad_count = 0;
 #endif
 
     struct listener* new = safe_malloc(sizeof(struct listener));
@@ -512,7 +512,7 @@ struct listener* create_bound_listeners(void) {
 #ifndef __ANDROID__
     int rc, opt = 1;
 #ifdef HAVE_IPV6
-    static int dad_count = 0;
+    int dad_count = 0;
 #endif
 #endif
 
